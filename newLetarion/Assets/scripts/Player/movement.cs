@@ -79,6 +79,9 @@ public class movement : MonoBehaviour
     public float deathParticalTime;
 
     public float diagonalDashSpeed;
+    public bool whasGrounded;
+    private float leaveGroundTimer;
+    public float leaveGroundTimerSet;
 
     void Start()
     {
@@ -143,7 +146,7 @@ public class movement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            if (isGrounded)
+            if (isGrounded || (whasGrounded))
             {
                 NormalJump();
             }
@@ -201,6 +204,25 @@ public class movement : MonoBehaviour
         {
             jumpTimer -= Time.deltaTime;
         }
+
+
+        if(isGrounded)
+        {
+            leaveGroundTimer = leaveGroundTimerSet;
+        }
+        else if(!isGrounded)
+        {
+            leaveGroundTimer -= Time.deltaTime;
+        }
+        
+        if(!isGrounded && leaveGroundTimer <= 0)
+        {
+            whasGrounded = false;
+        }
+        else if(!isGrounded && leaveGroundTimer > 0)
+        {
+            whasGrounded = true;
+        }
     }
 
     private void NormalJump()
@@ -218,7 +240,7 @@ public class movement : MonoBehaviour
 
     private void CheckIfCanJump()
     {
-        if (isGrounded && rb.velocity.y <= 0.01f)
+        if ((isGrounded && rb.velocity.y <= 0.01f) || whasGrounded)
         {
             canJump = true;
         }
@@ -271,7 +293,7 @@ public class movement : MonoBehaviour
 
             if(movementInputDirection != 0 && movementInputDirectionY != 0)
             {
-                rb.velocity = new Vector2(movementInputDirection * diagonalDashSpeed, movementInputDirectionY * diagonalDashSpeed);
+                rb.velocity = new Vector2(movementInputDirection * DashSpeed, movementInputDirectionY * DashSpeedY);
             }
             else if((movementInputDirection == 0 && movementInputDirectionY == 0) || (movementInputDirectionY == 0))
             {
@@ -279,8 +301,8 @@ public class movement : MonoBehaviour
             }
             else if (movementInputDirection == 0 && (movementInputDirectionY == 1 || movementInputDirectionY == -1))
             {
-                rb.velocity = new Vector2(0, movementInputDirectionY * DashSpeedY);
-                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.velocity = new Vector2(0, movementInputDirectionY * DashSpeedY);                
+                ///rb.velocity = new Vector2(rb.velocity.x, 0);
             }
             
             DashTimeLeft -= Time.deltaTime;
