@@ -83,6 +83,8 @@ public class movement : MonoBehaviour
     private float leaveGroundTimer;
     public float leaveGroundTimerSet;
 
+    public float dashEndMultiplier;
+
     void Start()
     {
         facingDirection = 1;
@@ -108,7 +110,7 @@ public class movement : MonoBehaviour
         UpdateAnimations();
         CheckIfCanJump();
         CheckJump();
-        CheckDash();
+        StartCoroutine(CheckDash());
         StartCoroutine(CheckHealth());
     }
 
@@ -283,11 +285,12 @@ public class movement : MonoBehaviour
         lastImageYPos = transform.position.y;
     }
 
-    private void CheckDash()
+    IEnumerator CheckDash()
     {
         /// apply dash
         if (isDashing)
         {
+            
             canMove = false;
             canFlip = false;
 
@@ -317,6 +320,12 @@ public class movement : MonoBehaviour
             {
                 PlayerAfterImagePool.Instance.GetFromPool();
                 lastImageYPos = transform.position.y;
+            }
+
+            if(rb.velocity.y > 0.0f)
+            {
+                yield return new WaitForSeconds(dashTime);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * dashEndMultiplier);
             }
         }
 

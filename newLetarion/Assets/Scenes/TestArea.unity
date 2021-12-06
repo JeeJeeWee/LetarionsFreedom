@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ece73ae89ec3d458bf1c4a4bedf1a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   maxDistance: 50
   HasTouchedGround: 0
   movementInputDirection: 0
@@ -520,6 +521,9 @@ MonoBehaviour:
   slowMotion: {fileID: 0}
   GameOverTime: 0
   deathParticalTime: 0
+  diagonalDashSpeed: 0
+  whasGrounded: 0
+  leaveGroundTimerSet: 0
 --- !u!212 &259448085
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -711,7 +715,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.2813143, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -17664,7 +17668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1478292145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 566914378}
