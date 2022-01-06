@@ -13,8 +13,15 @@ public class spikes : MonoBehaviour
         Debug.Log("colliding");
         if (other.CompareTag("Player"))
         {
-            player.currentHealth = 0;
             StartPlayer.currentHealth = 0;
         }
+
+        if (other.CompareTag("Player"))
+        {
+            player.currentHealth = 0;
+        }
+
+
+        
     }
 }

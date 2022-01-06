@@ -47,6 +47,9 @@ TagManager:
   - name: BG
     uniqueID: 2560281697
     locked: 0
+  - name: dripstone
+    uniqueID: 2810005147
+    locked: 0
   - name: bgGrass
     uniqueID: 120990193
     locked: 0
