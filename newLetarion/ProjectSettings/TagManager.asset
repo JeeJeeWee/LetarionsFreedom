@@ -71,11 +71,14 @@ TagManager:
   - name: player
     uniqueID: 3786262587
     locked: 0
-  - name: ground
+  - name: GroundBehindWater
     uniqueID: 861686233
     locked: 0
-  - name: water
+  - name: Water
     uniqueID: 3521616749
+    locked: 0
+  - name: Ground
+    uniqueID: 3287147971
     locked: 0
   - name: grass
     uniqueID: 1467321795

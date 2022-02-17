@@ -12,32 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6768d19b43ef8a34fa5a08423c46baa4, type: 3}
   m_Name: New Enemy
   m_EditorClassIdentifier: 
-  name: 
-  RunSpeed: 0
-  SquirlJumpHight: 0
-  jumpTimeSquirl: 0
-  startPosX: 0
-  startPosY: 0
+  name: mele
+  RunSpeed: 10
+  SquirlJumpHight: 15
+  jumpTimeSquirl: 0.2
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16408
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   facingDirection: 1
   isFacingRight: 1
-  groundCheck: {fileID: 0}
-  wallCheck: {fileID: 0}
-  wallCheck2: {fileID: 0}
-  PlayerCheck: {fileID: 0}
   isTouchingWall: 0
   isTouchingWallAbove: 0
-  IsGrounded: 0
+  IsGrounded: 1
   IsWalking: 0
-  groundCheckRadius: 0
-  wallCheckDistance: 0
-  PlayerCheckRadius: 0
-  PlayerInRange: 0
-  PlayerWasInRange: 0
-  EnemieAttackDamage: 0
-  player: {fileID: 0}
+  groundCheckRadius: 1
+  wallCheckDistance: 2
+  stopDistance: 4
+  PlayerCheckRadius: 4.5
+  PlayerInRange: 1
+  PlayerWasInRange: 1
+  EnemieAttackDamage: 1
+  knockBackSpeedX: 1
+  knockBackSpeedY: 2
+  SpinSpeed: 2
+  enemyDeathTime: 0.2

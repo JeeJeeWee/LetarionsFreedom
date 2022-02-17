@@ -242,7 +242,7 @@ public class movement : MonoBehaviour
 
     private void CheckIfCanJump()
     {
-        if ((isGrounded && rb.velocity.y <= 0.01f) || whasGrounded)
+        if ((isGrounded && rb.velocity.y <= 0.01f) || whasGrounded || isGrounded)
         {
             canJump = true;
         }

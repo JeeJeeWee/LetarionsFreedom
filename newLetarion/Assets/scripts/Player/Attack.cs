@@ -54,7 +54,7 @@ public class Attack : MonoBehaviour
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
-            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+            enemiesToDamage[i].GetComponent<EnemyTakeDamageScript>().TakeDamage(damage);
         }
     }
 
@@ -64,10 +64,7 @@ public class Attack : MonoBehaviour
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackUpPos.position, attackRangeUp, whatIsEnemies);
         for (int i = 0; i < enemiesToDamage.Length; i++)
         {
-            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-            enemiesToDamage[i].GetComponent<Enemy>().rbEnemy.AddForce(transform.up * 10f);
-            
-
+            enemiesToDamage[i].GetComponent<EnemyTakeDamageScript>().TakeDamage(damage);
         }
     }
 
